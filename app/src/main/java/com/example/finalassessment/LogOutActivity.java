@@ -29,9 +29,8 @@ public class LogOutActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
 
         if (v == buttonReturn) {
-
            Intent mainIntent = new Intent(LogOutActivity.this, MainActivity.class);
-            startActivity(mainIntent);
+           startActivity(mainIntent);
 
         }
     }
