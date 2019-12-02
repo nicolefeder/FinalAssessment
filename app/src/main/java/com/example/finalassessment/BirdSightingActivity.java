@@ -59,6 +59,7 @@ public class BirdSightingActivity extends AppCompatActivity implements View.OnCl
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
        if (item.getItemId() == R.id.itemLogout){
+           FirebaseAuth.getInstance().signOut();
            Intent mainIntent = new Intent(BirdSightingActivity.this, LogOutActivity.class);
            startActivity(mainIntent);
        }

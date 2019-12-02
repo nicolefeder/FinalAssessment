@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -159,6 +160,7 @@ public class SearchSightingActivity extends AppCompatActivity implements View.On
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.itemLogout){
+            FirebaseAuth.getInstance().signOut();
             Intent mainIntent = new Intent(SearchSightingActivity.this, LogOutActivity.class);
             startActivity(mainIntent);
         }

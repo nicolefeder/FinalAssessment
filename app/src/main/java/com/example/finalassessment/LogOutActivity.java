@@ -6,6 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LogOutActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -24,10 +28,11 @@ public class LogOutActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
 
-        if (v == buttonReturn){
-            Intent mainIntent = new Intent(LogOutActivity.this, MainActivity.class);
-            startActivity(mainIntent);
-        }
+        if (v == buttonReturn) {
 
+           Intent mainIntent = new Intent(LogOutActivity.this, MainActivity.class);
+            startActivity(mainIntent);
+
+        }
     }
 }
