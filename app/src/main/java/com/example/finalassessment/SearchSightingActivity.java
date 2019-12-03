@@ -95,6 +95,7 @@ public class SearchSightingActivity extends AppCompatActivity implements View.On
         else if (buttonAddImportance == v){
 
             int findZipCode = Integer.parseInt(editTextSearchZipCode.getText().toString());
+            Toast.makeText(this, "Importance Added", Toast.LENGTH_SHORT).show();
 
 
             myRef.orderByChild("zipCode").equalTo(findZipCode).addChildEventListener(new ChildEventListener() {
@@ -109,9 +110,9 @@ public class SearchSightingActivity extends AppCompatActivity implements View.On
 
                     foundBird.sightingImportance++;
 
+
                     String myKey = dataSnapshot.getKey();
                     myRef.child(myKey).child("sightingImportance").setValue(foundBird.sightingImportance);
-
 
 
 

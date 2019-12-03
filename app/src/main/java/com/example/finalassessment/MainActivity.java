@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(v == buttonRegister) {
             makeNewUsers(editTextEmail.getText().toString(), editTextPassword.getText().toString());
-        } else if( v == buttonLogin) {
+        } else if(v == buttonLogin) {
             loginUser(editTextEmail.getText().toString(), editTextPassword.getText().toString());
 
         }
