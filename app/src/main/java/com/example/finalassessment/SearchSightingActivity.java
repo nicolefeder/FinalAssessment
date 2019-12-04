@@ -110,10 +110,8 @@ public class SearchSightingActivity extends AppCompatActivity implements View.On
 
                     foundBird.sightingImportance++;
 
-
                     String myKey = dataSnapshot.getKey();
                     myRef.child(myKey).child("sightingImportance").setValue(foundBird.sightingImportance);
-
 
 
                 }

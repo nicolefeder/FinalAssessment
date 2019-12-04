@@ -68,7 +68,7 @@ public class BirdSightingActivity extends AppCompatActivity implements View.OnCl
            startActivity(mainIntent);
        }
        else if (item.getItemId() == R.id.itemReportSighting) {
-           Toast.makeText(this, "You are on the report sighting page!", Toast.LENGTH_SHORT).show();
+           Toast.makeText(this, "You are on the report sighting page", Toast.LENGTH_SHORT).show();
        }
 
 
