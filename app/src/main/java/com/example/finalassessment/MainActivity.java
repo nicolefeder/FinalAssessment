@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
 
-
         if(v == buttonRegister) {
             makeNewUsers(editTextEmail.getText().toString(), editTextPassword.getText().toString());
         } else if(v == buttonLogin) {
@@ -65,7 +64,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             Toast.makeText(MainActivity.this, "User Registration Failed", Toast.LENGTH_SHORT).show();
 
                         }
-
 
                     }
                 });
