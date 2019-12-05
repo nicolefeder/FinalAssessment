@@ -93,7 +93,7 @@ public class SearchSightingActivity extends AppCompatActivity implements View.On
                     }
                 });
             }
-            //if zipcode is not valid
+            //if findZipCode is invalid
             else if (findZipCode < 10000 || findZipCode > 99999) {
                 Toast.makeText(this, "Zip Code is Invalid", Toast.LENGTH_SHORT).show();
             }
