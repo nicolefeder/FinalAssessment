@@ -38,7 +38,7 @@ public class BirdSightingActivity extends AppCompatActivity implements View.OnCl
 
         buttonReportSighting.setOnClickListener(this);
 
-      mAuth = FirebaseAuth.getInstance();
+         mAuth = FirebaseAuth.getInstance();
 
 
     }
@@ -70,6 +70,10 @@ public class BirdSightingActivity extends AppCompatActivity implements View.OnCl
        else if (item.getItemId() == R.id.itemReportSighting) {
            Toast.makeText(this, "You are on the report sighting page", Toast.LENGTH_SHORT).show();
        }
+       else if (item.getItemId() == R.id.itemSightingImportance){
+           Intent mainIntent = new Intent(BirdSightingActivity.this, HighestImportance.class);
+           startActivity(mainIntent);
+       }
 
 
         return super.onOptionsItemSelected(item);
@@ -90,11 +94,18 @@ public class BirdSightingActivity extends AppCompatActivity implements View.OnCl
             int zipCode = Integer.parseInt(editTextZipCodeSighting.getText().toString());
             int sightingImportance = 0;
 
-            Bird newBird = new Bird(birdName, userEmail, zipCode, sightingImportance);
+            //ensuring zipCode is correct value
 
-            myRef.push().setValue(newBird);
+            if (zipCode >= 10000 && zipCode <= 99999) {
 
-            Toast.makeText(this, "Bird Sighting Reported", Toast.LENGTH_SHORT).show();
+              Bird newBird = new Bird(birdName, userEmail, zipCode, sightingImportance);
+              myRef.push().setValue(newBird);
+
+             Toast.makeText(this, "Bird Sighting Reported", Toast.LENGTH_SHORT).show();
+         }
+            else if (zipCode < 10000 || zipCode > 99999){
+                Toast.makeText(this, "Zip Code is Invalid", Toast.LENGTH_SHORT).show();
+            }
 
         }
 

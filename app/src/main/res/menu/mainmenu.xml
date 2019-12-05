@@ -9,6 +9,9 @@
         android:id="@+id/itemSearchSighting"
         android:title="Search Sighting" />
     <item
+        android:id="@+id/itemSightingImportance"
+        android:title="Search Highest Importance" />
+    <item
         android:id="@+id/itemLogout"
         android:title="Logout" />
 </menu>

@@ -69,13 +69,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 });
     }
 
+    //once user logs in, they will go to highest importance search page
     public void loginUser(String email, String password) {
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Intent mainIntent = new Intent(MainActivity.this, BirdSightingActivity.class);
+                            Intent mainIntent = new Intent(MainActivity.this, HighestImportance.class);
                             startActivity(mainIntent);
 
                         } else {

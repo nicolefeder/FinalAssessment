@@ -174,6 +174,12 @@ public class SearchSightingActivity extends AppCompatActivity implements View.On
 
         }
 
+        else if (item.getItemId() == R.id.itemSightingImportance){
+            Intent mainIntent = new Intent(SearchSightingActivity.this, HighestImportance.class);
+            startActivity(mainIntent);
+        }
+
+
         return super.onOptionsItemSelected(item);
     }
 }
