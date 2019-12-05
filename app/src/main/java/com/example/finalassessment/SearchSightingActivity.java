@@ -57,40 +57,49 @@ public class SearchSightingActivity extends AppCompatActivity implements View.On
         if (buttonSearch == v) {
             int findZipCode = Integer.parseInt(editTextSearchZipCode.getText().toString());
 
-            myRef.orderByChild("zipCode").equalTo(findZipCode).addChildEventListener(new ChildEventListener() {
-                @Override
-                public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                    Bird foundBird = dataSnapshot.getValue(Bird.class);
-                    String findBirdName = foundBird.birdName;
-                    String findUserEmail = foundBird.userEmail;
+            //ensuring findZipCode is in correct parameters
+            if (findZipCode >= 10000 && findZipCode <= 99999) {
 
-                    textViewBirdName.setText(findBirdName);
-                    textViewUserEmail.setText(findUserEmail);
+                myRef.orderByChild("zipCode").equalTo(findZipCode).addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                        Bird foundBird = dataSnapshot.getValue(Bird.class);
+                        String findBirdName = foundBird.birdName;
+                        String findUserEmail = foundBird.userEmail;
 
-                }
+                        textViewBirdName.setText(findBirdName);
+                        textViewUserEmail.setText(findUserEmail);
 
-                @Override
-                public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                    }
 
-                }
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
-                @Override
-                public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+                    }
 
-                }
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
 
-                @Override
-                public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                    }
 
-                }
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    }
 
-                }
-            });
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+            }
+            //if zipcode is not valid
+            else if (findZipCode < 10000 || findZipCode > 99999) {
+                Toast.makeText(this, "Zip Code is Invalid", Toast.LENGTH_SHORT).show();
+            }
 
         }
+
 
         else if (buttonAddImportance == v){
 

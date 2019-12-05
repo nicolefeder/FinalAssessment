@@ -94,18 +94,11 @@ public class BirdSightingActivity extends AppCompatActivity implements View.OnCl
             int zipCode = Integer.parseInt(editTextZipCodeSighting.getText().toString());
             int sightingImportance = 0;
 
-            //ensuring zipCode is correct value
+            Bird newBird = new Bird(birdName, userEmail, zipCode, sightingImportance);
+            myRef.push().setValue(newBird);
 
-            if (zipCode >= 10000 && zipCode <= 99999) {
+            Toast.makeText(this, "Bird Sighting Reported", Toast.LENGTH_SHORT).show();
 
-              Bird newBird = new Bird(birdName, userEmail, zipCode, sightingImportance);
-              myRef.push().setValue(newBird);
-
-             Toast.makeText(this, "Bird Sighting Reported", Toast.LENGTH_SHORT).show();
-         }
-            else if (zipCode < 10000 || zipCode > 99999){
-                Toast.makeText(this, "Zip Code is Invalid", Toast.LENGTH_SHORT).show();
-            }
 
         }
 
