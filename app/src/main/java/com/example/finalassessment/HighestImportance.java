@@ -25,7 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class HighestImportance extends AppCompatActivity implements View.OnClickListener {
 
     Button buttonHighestImportance;
-    TextView textViewHighestBirdName, textViewHighestZipCode, textViewHighestUserEmail;
+    TextView textViewHighestBirdName, textViewHighestZipCode, textViewHighestUserEmail, textViewHighestImportance;
 
 
     @Override
@@ -37,6 +37,7 @@ public class HighestImportance extends AppCompatActivity implements View.OnClick
         textViewHighestBirdName = findViewById(R.id.textViewHighestBirdName);
         textViewHighestZipCode = findViewById(R.id.textViewHighestZipCode);
         textViewHighestUserEmail = findViewById(R.id.textViewHighestUserEmail);
+        textViewHighestImportance = findViewById(R.id.textViewHighestImportance);
 
         buttonHighestImportance.setOnClickListener(this);
     }
@@ -97,11 +98,12 @@ public class HighestImportance extends AppCompatActivity implements View.OnClick
                     String findHighestBirdName = foundBird.birdName;
                     String findHighestUserEmail = foundBird.userEmail;
                     int findHighestZipCode = foundBird.zipCode;
+                    int findHighestImportance = foundBird.sightingImportance;
 
                     textViewHighestBirdName.setText(findHighestBirdName);
                     textViewHighestUserEmail.setText(findHighestUserEmail);
                     textViewHighestZipCode.setText(String.valueOf(findHighestZipCode));
-
+                    textViewHighestImportance.setText(String.valueOf(findHighestImportance));
 
                 }
 
